@@ -1,0 +1,223 @@
+﻿{
+  "SPHardwareDataType": [
+    {
+      "_name": "hardware_overview",
+      "cpu_type": "Quad-Core Intel Core i7",
+      "current_processor_speed": "2.3 GHz",
+      "l2_cache_core": "512 KB",
+      "l3_cache": "8 MB",
+      "machine_model": "MacBookPro16,2",
+      "machine_name": "MacBook Pro",
+      "number_processors": 4,
+      "packages": 1,
+      "physical_memory": "32 GB",
+      "serial_number": "xxxx"
+    }
+  ],
+  "SPNetworkDataType": [
+    {
+      "_name": "Wi-Fi",
+      "dhcp": {
+        "dhcp_domain_name_servers": "192.168.4.1",
+        "dhcp_lease_duration": 0,
+        "dhcp_message_type": "0x05",
+        "dhcp_routers": "192.168.4.1",
+        "dhcp_server_identifier": "192.168.4.1",
+        "dhcp_subnet_mask": "255.255.252.0"
+      },
+      "DNS": {
+        "ServerAddresses": [
+          "192.168.4.1"
+        ]
+      },
+      "Ethernet": {
+        "MAC Address": "3c:22:fb:be:6d:85",
+        "MediaOptions": [
+
+        ],
+        "MediaSubType": "autoselect"
+      },
+      "hardware": "AirPort",
+      "interface": "en0",
+      "ip_address": [
+        "192.168.4.69"
+      ],
+      "IPv4": {
+        "AdditionalRoutes": [
+          {
+            "DestinationAddress": "192.168.4.69",
+            "SubnetMask": "255.255.255.255"
+          },
+          {
+            "DestinationAddress": "169.254.0.0",
+            "SubnetMask": "255.255.0.0"
+          }
+        ],
+        "Addresses": [
+          "192.168.4.69"
+        ],
+        "ARPResolvedHardwareAddress": "3c:5c:f1:17:9f:6d",
+        "ARPResolvedIPAddress": "192.168.4.1",
+        "ConfigMethod": "DHCP",
+        "ConfirmedInterfaceName": "en0",
+        "InterfaceName": "en0",
+        "NetworkSignature": "IPv4.Router=192.168.4.1;IPv4.RouterHardwareAddress=3c:5c:f1:17:9f:6d",
+        "Router": "192.168.4.1",
+        "SubnetMasks": [
+          "255.255.252.0"
+        ]
+      },
+      "IPv6": {
+        "Addresses": [
+          "fdd6:f891:97f9:1:188e:d97:3366:5ac8",
+          "fdd6:f891:97f9:1:3080:e795:ddc4:7254",
+          "fdf1:8161:ad51:1:141b:4ed5:89f6:fb18",
+          "fdf1:8161:ad51:1:b540:d1bc:1866:260c",
+          "fddf:9475:af1d:1:a0:6368:a286:ee83",
+          "fddf:9475:af1d:1:1063:6027:951f:31ff"
+        ],
+        "ConfigMethod": "Automatic",
+        "ConfirmedInterfaceName": "en0",
+        "InterfaceName": "en0",
+        "NetworkSignature": "IPv6.Prefix=fdd6:f891:97f9:1::/64;IPv6.RouterHardwareAddress=3c:5c:f1:17:9f:6d",
+        "PrefixLength": [
+          64,
+          64,
+          64,
+          64,
+          64,
+          64
+        ],
+        "Router": "fe80::3e5c:f1ff:fe17:9f6d"
+      },
+      "Proxies": {
+        "ExceptionsList": [
+          "*.local",
+          "169.254/16"
+        ],
+        "FTPPassive": "yes"
+      },
+      "sleep_proxies": [
+        {
+          "_name": "1 Bedroom HomePod 2",
+          "MarginalPower": 60,
+          "Metric": 703560,
+          "Portability": 35,
+          "TotalPower": 63,
+          "Type": 70
+        },
+        {
+          "_name": "1 Bedroom AppleTV",
+          "MarginalPower": 60,
+          "Metric": 703560,
+          "Portability": 35,
+          "TotalPower": 63,
+          "Type": 70
+        },
+        {
+          "_name": "1 Bedroom HomePod",
+          "MarginalPower": 60,
+          "Metric": 703560,
+          "Portability": 35,
+          "TotalPower": 63,
+          "Type": 70
+        }
+      ],
+      "spnetwork_service_order": 0,
+      "type": "AirPort"
+    },
+    {
+      "_name": "Bluetooth PAN",
+      "hardware": "Ethernet",
+      "interface": "en6",
+      "IPv4": {
+        "ConfigMethod": "DHCP"
+      },
+      "IPv6": {
+        "ConfigMethod": "Automatic"
+      },
+      "Proxies": {
+        "ExceptionsList": [
+          "*.local",
+          "169.254/16"
+        ],
+        "FTPPassive": "yes"
+      },
+      "spnetwork_service_order": 1,
+      "type": "Ethernet"
+    },
+    {
+      "_name": "Thunderbolt Bridge",
+      "hardware": "Ethernet",
+      "interface": "bridge0",
+      "IPv4": {
+        "ConfigMethod": "DHCP"
+      },
+      "IPv6": {
+        "ConfigMethod": "Automatic"
+      },
+      "Proxies": {
+        "ExceptionsList": [
+          "*.local",
+          "169.254/16"
+        ],
+        "FTPPassive": "yes"
+      },
+      "spnetwork_service_order": 2,
+      "type": "Ethernet"
+    }
+  ],
+  "SPSoftwareDataType": [
+    {
+      "_name": "os_overview",
+      "boot_mode": "normal_boot",
+      "boot_volume": "Macintosh HD",
+      "kernel_version": "Darwin 20.2.0",
+      "os_version": "macOS 11.1 (20C69)",
+      "uptime": "up 3:6:43:24",
+      "user_name": "Brian Ritchie (brianr)"
+    }
+  ],
+  "SPStorageDataType": [
+    {
+      "_name": "Macintosh HD - Data",
+      "bsd_name": "disk1s2",
+      "file_system": "APFS",
+      "free_space_in_bytes": 1569277054976,
+      "ignore_ownership": "no",
+      "mount_point": "/System/Volumes/Data",
+      "physical_drive": {
+        "device_name": "APPLE SSD AP2048N",
+        "is_internal_disk": "yes",
+        "media_name": "AppleAPFSMedia",
+        "medium_type": "ssd",
+        "partition_map_type": "unknown_partition_map_type",
+        "protocol": "PCI-Express",
+        "smart_status": "Verified"
+      },
+      "size_in_bytes": 2000796545024,
+      "volume_uuid": "2671C892-5256-47FF-9B3A-524B8FCD0109",
+      "writable": "yes"
+    },
+    {
+      "_name": "Macintosh HD",
+      "bsd_name": "disk1s1s1",
+      "file_system": "APFS",
+      "free_space_in_bytes": 1569277050880,
+      "ignore_ownership": "no",
+      "mount_point": "/",
+      "physical_drive": {
+        "device_name": "APPLE SSD AP2048N",
+        "is_internal_disk": "yes",
+        "media_name": "AppleAPFSMedia",
+        "medium_type": "ssd",
+        "partition_map_type": "unknown_partition_map_type",
+        "protocol": "PCI-Express",
+        "smart_status": "Verified"
+      },
+      "size_in_bytes": 2000796545024,
+      "volume_uuid": "AFB359A6-1079-42AE-8294-A9135634B3B1",
+      "writable": "no"
+    }
+  ]
+}
