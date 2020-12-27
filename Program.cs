@@ -28,6 +28,9 @@ namespace MacOsSystemProfiler
             {
                 Console.WriteLine($" {net._name} ({string.Join(",", net.ip_address ?? new List<string>() )})");
             }
+
+            var memPressure = await MacOsMemoryPressure.GetMemoryPressure();
+            Console.WriteLine($"Memory Used: {memPressure.MemoryFreePercentage}%");
         }
     }
 }
