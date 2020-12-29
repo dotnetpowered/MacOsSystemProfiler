@@ -8,7 +8,13 @@ namespace MacOsSystemProfiler
     {
         private static async Task Main(string[] args)
         {
-            var sysProfile = await MacOsProfiler.GetProfile();
+            var sysProfile = await MacOsProfiler.GetProfile(new ProfilerDataType[] {
+                ProfilerDataType.SPHardwareDataType,
+                ProfilerDataType.SPMemoryDataType,
+                ProfilerDataType.SPNetworkDataType,
+                ProfilerDataType.SPSoftwareDataType,
+                ProfilerDataType.SPStorageDataType
+            });
 
             foreach (var hw in sysProfile.SPHardwareDataType)
             {
