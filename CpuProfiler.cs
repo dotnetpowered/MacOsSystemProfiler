@@ -10,7 +10,7 @@ namespace MacOsSystemProfiler
     public class CpuProfiler : IDisposable
     {
         CancellationTokenSource source;
-        CancellationToken ready;
+        CancellationToken cancelWait;
         (decimal, decimal, decimal)[] measurements = new (decimal, decimal, decimal)[2];
         int currentIndex = 0;
         private bool disposedValue;
@@ -18,29 +18,44 @@ namespace MacOsSystemProfiler
 
         public CpuProfiler()
         {
-            timer = new System.Timers.Timer(500);
+            timer = new System.Timers.Timer(1);
             timer.Elapsed += new ElapsedEventHandler(OnElapsed);
             timer.AutoReset = false;
-            timer.Start();
 
             source = new CancellationTokenSource();
-            ready = source.Token;
+            cancelWait = source.Token;
+
+            timer.Start();
         }
 
         public Decimal UserPercentage => measurements[currentIndex].Item1;
         public Decimal SystemPercentage => measurements[currentIndex].Item2;
         public Decimal IdlePercentage => measurements[currentIndex].Item3;
 
-        public bool Ready => ready.IsCancellationRequested;
+        public bool Ready { get; private set; }
+
+        public double WaitInterval => timer.Interval;
 
         public void WaitForReady()
         {
-            ready.WaitHandle.WaitOne();
+            if (!Ready)
+                WaitForNextSample();
+        }
+
+        public void WaitForNextSample()
+        {
+            source = new CancellationTokenSource();
+            cancelWait = source.Token;
+
+            cancelWait.WaitHandle.WaitOne();
         }
 
         private void OnElapsed(object sender, ElapsedEventArgs e)
         {
             GetNextSampleAsync().Wait();
+
+            if (timer.Interval == 1)
+                timer.Interval = 500;
 
             timer.Start(); // Restart timer
         }
@@ -72,6 +87,7 @@ namespace MacOsSystemProfiler
             measurements[newIndex] = (stats[0], stats[1], stats[2]);
             currentIndex = newIndex;
 
+            Ready = true;
             source.Cancel();
         }
 

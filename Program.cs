@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 
@@ -34,14 +35,18 @@ namespace MacOsSystemProfiler
             Console.WriteLine("Network");
             foreach (var net in sysProfile.SPNetworkDataType)
             {
-                Console.WriteLine($" {net._name} ({string.Join(",", net.ip_address ?? new List<string>() )})");
+                Console.WriteLine($" {net._name} ({string.Join(",", net.ip_address ?? new List<string>())})");
             }
 
             var memPressure = await MacOsMemoryPressure.GetMemoryPressure();
             Console.WriteLine($"Memory Used: {memPressure.MemoryFreePercentage}%");
 
             cpuProfiler.WaitForReady();
-            Console.WriteLine($"CPU {cpuProfiler.UserPercentage}%, {cpuProfiler.SystemPercentage}%, {cpuProfiler.IdlePercentage}%");
+            for (var n = 0; n < 5; n++)
+            {
+                Console.WriteLine($"CPU {cpuProfiler.UserPercentage}%, {cpuProfiler.SystemPercentage}%, {cpuProfiler.IdlePercentage}%");
+                cpuProfiler.WaitForNextSample();
+            }
         }
     }
 }
