@@ -38,13 +38,13 @@ namespace MacOsSystemProfiler
                 Console.WriteLine($" {net._name} ({string.Join(",", net.ip_address ?? new List<string>())})");
             }
 
-            var memPressure = await MacOsMemoryPressure.GetMemoryPressure();
-            Console.WriteLine($"Memory Used: {memPressure.MemoryFreePercentage}%");
-
+            Console.WriteLine("Samples:");
             cpuProfiler.WaitForReady();
             for (var n = 0; n < 5; n++)
             {
-                Console.WriteLine($"CPU {cpuProfiler.UserPercentage}%, {cpuProfiler.SystemPercentage}%, {cpuProfiler.IdlePercentage}%");
+                var memPressure = await MacOsMemoryPressure.GetMemoryPressure();
+                Console.WriteLine($" CPU Usage:   {cpuProfiler.UserPercentage}%, {cpuProfiler.SystemPercentage}%, {cpuProfiler.IdlePercentage}%");
+                Console.WriteLine($" Memory Used: {memPressure.MemoryFreePercentage}%\n");
                 cpuProfiler.WaitForNextSample();
             }
         }
