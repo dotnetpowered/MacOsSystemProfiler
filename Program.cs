@@ -8,6 +8,8 @@ namespace MacOsSystemProfiler
     {
         private static async Task Main(string[] args)
         {
+            using var cpuProfiler = new CpuProfiler();
+
             var sysProfile = await MacOsProfiler.GetProfile(new ProfilerDataType[] {
                 ProfilerDataType.SPHardwareDataType,
                 ProfilerDataType.SPMemoryDataType,
@@ -37,6 +39,9 @@ namespace MacOsSystemProfiler
 
             var memPressure = await MacOsMemoryPressure.GetMemoryPressure();
             Console.WriteLine($"Memory Used: {memPressure.MemoryFreePercentage}%");
+
+            cpuProfiler.WaitForReady();
+            Console.WriteLine($"CPU {cpuProfiler.UserPercentage}%, {cpuProfiler.SystemPercentage}%, {cpuProfiler.IdlePercentage}%");
         }
     }
 }
